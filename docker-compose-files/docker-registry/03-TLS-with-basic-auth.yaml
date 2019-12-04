@@ -1,0 +1,23 @@
+version: '3.0'
+
+services:
+
+  registry:
+    container_name: docker-registry
+    restart: always
+    image: registry:2
+    environment:
+      REGISTRY_HTTP_TLS_CERTIFICATE: /certs/domain.crt
+      REGISTRY_HTTP_TLS_KEY: /certs/domain.key
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+    ports:
+      - 5000:5000
+    volumes:
+      - docker-registry-data:/var/lib/registry
+      - ./certs:/certs
+      - ./auth:/auth
+
+volumes:
+  docker-registry-data: {}
