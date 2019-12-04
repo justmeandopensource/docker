@@ -3,6 +3,8 @@
 mkdir certs
 ```
 Copy below content to __openssl.conf__
+
+_Update **Docker Server IP** with the IP address of your server where you will be running docker registry_
 ```
 [ req ]
 distinguished_name = req_distinguished_name
