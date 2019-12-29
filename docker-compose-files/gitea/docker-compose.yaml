@@ -1,19 +1,11 @@
-version: "2"
-
-networks:
-  gitea:
-    external: false
+version: "3"
 
 services:
-  server:
+  gitea:
     image: gitea/gitea:latest
-    environment:
-      - USER_UID=1000
-      - USER_GID=1000
-    networks:
-      - gitea
+    container_name: gitea
     volumes:
-      - gitea:/data
+      - gitea_data:/data
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
@@ -21,4 +13,4 @@ services:
       - "3022:22"
 
 volumes:
-  gitea: {}
+  gitea_data: {}
