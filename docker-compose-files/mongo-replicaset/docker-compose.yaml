@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+
+  mongo-rs-01:
+    container_name: mongo-rs-01
+    image: mongo:4.4
+    command: mongod --replSet mongo-rs --port 50001 --dbpath /data/db
+    ports:
+      - 50001:50001
+    volumes:
+      - mongo-rs-01:/data/db
+    networks:
+      - mongo-rs
+
+  mongo-rs-02:
+    container_name: mongo-rs-02
+    image: mongo:4.4
+    command: mongod --replSet mongo-rs --port 50002 --dbpath /data/db
+    ports:
+      - 50002:50002
+    volumes:
+      - mongo-rs-02:/data/db
+    networks:
+      - mongo-rs
+
+  mongo-rs-03:
+    container_name: mongo-rs-03
+    image: mongo:4.4
+    command: mongod --replSet mongo-rs --port 50003 --dbpath /data/db
+    ports:
+      - 50003:50003
+    volumes:
+      - mongo-rs-03:/data/db
+    networks:
+      - mongo-rs
+
+volumes:
+  mongo-rs-01: {}
+  mongo-rs-02: {}
+  mongo-rs-03: {}
+
+networks:
+  mongo-rs: {}
