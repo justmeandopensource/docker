@@ -5,6 +5,11 @@
 127.0.0.1   localhost   mongo-rs-01 mongo-rs-02 mongo-rs-03
 ```
 
+#### Bring up the Replicaset
+```
+$ docker-compose up -d
+```
+
 #### Initiate Replicaset
 ```
 $ mongo mongodb://mongo-rs-01:50001 00-init-replicaset.js
