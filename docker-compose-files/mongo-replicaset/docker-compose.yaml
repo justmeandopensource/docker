@@ -4,7 +4,7 @@ services:
 
   mongo-rs-01:
     container_name: mongo-rs-01
-    image: mongo:4.4
+    image: mongo:4.2
     command: mongod --replSet mongo-rs --port 50001 --dbpath /data/db
     ports:
       - 50001:50001
@@ -15,7 +15,7 @@ services:
 
   mongo-rs-02:
     container_name: mongo-rs-02
-    image: mongo:4.4
+    image: mongo:4.2
     command: mongod --replSet mongo-rs --port 50002 --dbpath /data/db
     ports:
       - 50002:50002
@@ -26,7 +26,7 @@ services:
 
   mongo-rs-03:
     container_name: mongo-rs-03
-    image: mongo:4.4
+    image: mongo:4.2
     command: mongod --replSet mongo-rs --port 50003 --dbpath /data/db
     ports:
       - 50003:50003
