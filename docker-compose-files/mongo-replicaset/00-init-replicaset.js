@@ -9,3 +9,5 @@ rs.initiate(
     ]
   }
 );
+
+db.disableFreeMonitoring();
