@@ -2,6 +2,17 @@ version: '3'
 
 services:
 
+  mongo-rs-00:
+    container_name: mongo-rs-00
+    image: mongo:4.2
+    command: mongod --replSet mongo-rs --port 50000 --dbpath /data/db
+    ports:
+      - 50000:50000
+    volumes:
+      - mongo-rs-00:/data/db
+    networks:
+      - mongo-rs
+
   mongo-rs-01:
     container_name: mongo-rs-01
     image: mongo:4.2
@@ -36,6 +47,7 @@ services:
       - mongo-rs
 
 volumes:
+  mongo-rs-00: {}
   mongo-rs-01: {}
   mongo-rs-02: {}
   mongo-rs-03: {}
