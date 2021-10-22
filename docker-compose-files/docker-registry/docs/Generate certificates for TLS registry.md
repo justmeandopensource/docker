@@ -31,7 +31,7 @@ Generate the certificate and private key
 ```
 openssl req \
  -x509 -newkey rsa:4096 -days 365 -config openssl.conf \
- -keyout certs/domain.key -out certs/domain.crt
+ -keyout domain.key -out domain.crt
 ```
 To verify your certificate
 ```
